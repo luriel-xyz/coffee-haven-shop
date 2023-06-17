@@ -72,6 +72,10 @@ article {
   height: 200px;
 }
 
+.columns {
+  display: flex;
+}
+
 @media only screen and (min-width: 768px) {
   main {
     display: flex;
@@ -80,4 +84,42 @@ article {
   aside {
     margin-left: 2%;
   }
+
+  .columns-desktop {
+    display: flex;
+  }
+}
+
+/* Coffees */
+.coffee {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+  border: solid 1px #ccc;
+}
+
+.coffee img {
+  width: 100%;
+}
+
+.coffee .title {
+  font-weight: bold;
+}
+
+.coffee .price {
+  text-align: right;
+}
+
+.coffee .columns div {
+  width: 50%;
+}
+
+.coffee button {
+  background-color: #f6aeae;
+  padding: 10px;
+  border: solid 1px #f6aeae;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
 }
