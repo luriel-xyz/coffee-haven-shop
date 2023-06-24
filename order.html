@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order | Coffee Haven Shop</title>
+    <link rel="stylesheet" href="styles/site.css" />
+    <style>
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      .input-group input,
+      .input-group select,
+      .input-group textarea {
+        padding: 10px;
+        border: solid 1px #999;
+        border-radius: 2px;
+        width: 100%;
+      }
+
+      label {
+        font-weight: 600;
+      }
+
+      input[type="reset"] {
+        background-color: transparent;
+        border: 0;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      input[type="submit"] {
+        border: solid 1px #999;
+        border-radius: 3px;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      @media only screen and (min-width: 768px) {
+        article {
+          width: 350px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="coffees.html">Coffees</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <aside>
+        <!-- Logo -->
+        <img src="images/logo.png" class="logo" alt="Coffee Haven Shop" />
+      </aside>
+
+      <article>
+        <h1>Order</h1>
+
+        <!-- Coffee Order Details -->
+        <div class="coffee">
+          <img src="" alt="" />
+          <div class="columns">
+            <div class="title"></div>
+            <div class="price"></div>
+          </div>
+          <p class="desc"></p>
+        </div>
+
+        <!-- Order Form -->
+        <form id="orderForm">
+          <input type="hidden" id="coffee-order" name="coffee-order" />
+          <input type="hidden" id="location" name="location" />
+
+          <!-- First Name -->
+          <div class="input-group">
+            <div><label for="first-name">First name</label></div>
+            <div><input type="text" name="first-name" id="first-name" /></div>
+          </div>
+
+          <!-- Last Name -->
+          <div class="input-group">
+            <div><label for="last-name">Last name</label></div>
+            <div><input type="text" name="last-name" id="last-name" /></div>
+          </div>
+
+          <!-- Address -->
+          <div class="input-group">
+            <div><label for="address">Address</label></div>
+            <div><input type="text" name="address" id="address" /></div>
+          </div>
+
+          <!-- Province -->
+          <div class="input-group">
+            <div><label for="province">Province</label></div>
+            <div>
+              <select id="province" name="province">
+                <option value="" selected>Select one</option>
+                <option value="AB">Alberta</option>
+                <option value="BC">British Columbia</option>
+                <option value="MB">Manitoba</option>
+                <option value="NB">New Brunswick</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="ON">Ontario</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="QC">Quebec</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NU">Nunavut</option>
+                <option value="YT">Yukon</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Postal Code -->
+          <div class="input-group">
+            <div><label for="postal-code">Postal code</label></div>
+            <div><input type="text" name="postal-code" id="postal-code" /></div>
+          </div>
+
+          <!-- Comments -->
+          <div class="input-group">
+            <div><label for="comments">Comments</label></div>
+            <div>
+              <textarea
+                name="comments"
+                id="comments"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Reset and Submit Buttons -->
+          <input type="reset" value="Reset" />
+          <input type="submit" value="Order" />
+        </form>
+
+        <!-- Order Details Modal -->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Details</h2>
+            <div id="modalValues">
+              <p>
+                <strong>Coffee Order:</strong>
+                <span id="modalCoffeeOrder"></span>
+              </p>
+              <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+              <p>
+                <strong>First Name:</strong> <span id="modalFirstName"></span>
+              </p>
+              <p>
+                <strong>Last Name:</strong> <span id="modalLastName"></span>
+              </p>
+              <p><strong>Address:</strong> <span id="modalAddress"></span></p>
+              <p><strong>Province:</strong> <span id="modalProvince"></span></p>
+              <p>
+                <strong>Postal Code:</strong> <span id="modalPostalCode"></span>
+              </p>
+              <p><strong>Comments:</strong> <span id="modalComments"></span></p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="coffees.html">Coffees</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <!-- Order Script -->
+    <script src="js/order-script.js"></script>
+  </body>
+</html>
