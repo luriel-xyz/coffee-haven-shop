@@ -2,6 +2,8 @@
 
 This is a simple website made with HTML, CSS, and JavaScript that allows users to order coffee and provide their information, including an optional location.
 
+**[Demo here](https://luriel-xyz.github.io/coffee-haven-shop/)**
+
 ## Functionality
 
 The website offers the following functionalities:
